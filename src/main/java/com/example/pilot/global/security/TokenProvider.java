@@ -44,8 +44,6 @@ public sealed class TokenProvider permits AccessTokenProvider, RefreshTokenProvi
                         .map(SimpleGrantedAuthority::new)
                         .collect(Collectors.toList());
 
-        System.out.println(claims.getSubject());
-
         User principal = new User(claims.getSubject(), "", authorities);
 
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
